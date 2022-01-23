@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/env python
 import argparse
 import csv 
 
@@ -6,4 +6,22 @@ def main(argv=None):
 
 
     return -1 
+
+
+def checkArgumentValidity(argv):
+
+    # parse command line into Python data types 
+    argparser = argparse.ArgumentParser(description="Find the most active cookie given a cookie log file and a date")
+    argparser.add_argument(dest="filePath", help="File path to cookie log CSV")
+    argparser.add_argument('-d', dest="targetDate", help="Target date to find cookie")
+
+    # save file arguments into variables
+    args = argparser.parse_args()
+    filePath = args.filePath
+    targetDate = args.targetDate
+
+
+
+if __name__ == "__main__":
+    main()
 
