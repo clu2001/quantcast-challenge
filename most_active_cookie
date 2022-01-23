@@ -13,10 +13,23 @@ def main(argv=None):
     # list to store all the cookies given on the target date 
     cookiesOnTargetDate = []
 
+    # read cookie log file 
+    with open(filePath) as cookieLog:
 
+        CSVreader = csv.reader(cookieLog, delimiter=',')
+        # iterate through each row in the cookie log CSV file 
+        for row in CSVreader: 
+            timestamp = row[1]
+            # if date is found in the timestamp, then we will add the cookie 
+            # to the list of cookies 
+            if targetDate in timestamp: 
+                cookie = row[0]
+                cookiesOnTargetDate.append(cookie)
 
+    # return the most cookie with the highest frequency in cookiesOnTargetDate list 
+    mostFrequentCookie = max(set(cookiesOnTargetDate), key = cookiesOnTargetDate.count)
 
-    return -1
+    return mostFrequentCookie
 
 
 
