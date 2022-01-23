@@ -1,6 +1,9 @@
 #! /usr/bin/env python
+import csv
 import argparse
-import csv 
+from os import path 
+import datetime
+
 
 def main(argv=None):
 
@@ -20,6 +23,20 @@ def checkArgumentValidity(argv):
     filePath = args.filePath
     targetDate = args.targetDate
 
+        # test if all necessary arguments (file path and target date) are input by the user
+    # if not, raise necessary exceptions to show an error has occured 
+    if not path.exists(filePath):
+        raise Exception("Invalid file path")
+    if targetDate == None:
+        raise Exception("Please input a target date as argument")
+    # validate the target date argument using datetime library
+    try:
+        datetime.datetime.strptime(targetDate, '%Y-%m-%d')
+    except ValueError:
+        raise ValueError("Incorrect date format, should be YYYY-MM-DD")
+    
+    # return filePath and targetDate to be used in main function
+    return [filePath, targetDate]
 
 
 if __name__ == "__main__":
