@@ -7,8 +7,18 @@ import datetime
 
 def main(argv=None):
 
+    argumentValues = checkArgumentValidity(argv)
+    filePath = argumentValues[0]
+    targetDate = argumentValues[1]
+    # list to store all the cookies given on the target date 
+    cookiesOnTargetDate = []
 
-    return -1 
+
+
+
+    return -1
+
+
 
 
 def checkArgumentValidity(argv):
@@ -23,7 +33,7 @@ def checkArgumentValidity(argv):
     filePath = args.filePath
     targetDate = args.targetDate
 
-        # test if all necessary arguments (file path and target date) are input by the user
+    # test if all necessary arguments (file path and target date) are input by the user
     # if not, raise necessary exceptions to show an error has occured 
     if not path.exists(filePath):
         raise Exception("Invalid file path")
