@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 import csv
 import argparse
+from http import cookies
 from os import path 
 import datetime
 
@@ -27,10 +28,23 @@ def main(argv=None):
                 cookiesOnTargetDate.append(cookie)
 
     # return the most cookie with the highest frequency in cookiesOnTargetDate list 
-    mostFrequentCookie = max(set(cookiesOnTargetDate), key = cookiesOnTargetDate.count)
+    cookiesDict = {}
+    mostFrequentCookies = []
+    maxCount = 0
+    for cookie in cookiesOnTargetDate:
 
-    return mostFrequentCookie
+        if cookie not in cookiesDict:
+            cookiesDict[cookie] = 0
+        cookiesDict[cookie] += 1
 
+    maxCount = max(cookiesDict.values())
+
+    for key in cookiesDict:
+        if cookiesDict[key] == maxCount:
+            mostFrequentCookies.append(key)
+            
+    for cookie in mostFrequentCookies:
+        print(cookie)
 
 
 
