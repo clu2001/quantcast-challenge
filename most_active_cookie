@@ -11,9 +11,18 @@ def main(argv=None):
     argumentValues = checkArgumentValidity(argv)
     filePath = argumentValues[0]
     targetDate = argumentValues[1]
+
+    cookiesOnTargetDate = getCookiesListOnTargetDate(filePath, targetDate)
+
+    mostFrequentCookies = getMostFrequentCookies(cookiesOnTargetDate)
+            
+    for cookie in mostFrequentCookies:
+        print(cookie)
+
+def getCookiesListOnTargetDate(filePath, targetDate):
+
     # list to store all the cookies given on the target date 
     cookiesOnTargetDate = []
-
     # read cookie log file 
     with open(filePath) as cookieLog:
 
@@ -27,6 +36,10 @@ def main(argv=None):
                 cookie = row[0]
                 cookiesOnTargetDate.append(cookie)
 
+    return cookiesOnTargetDate
+
+
+def getMostFrequentCookies(cookiesOnTargetDate):
     # return the most cookie with the highest frequency in cookiesOnTargetDate list 
     cookiesDict = {}
     mostFrequentCookies = []
@@ -42,11 +55,8 @@ def main(argv=None):
     for key in cookiesDict:
         if cookiesDict[key] == maxCount:
             mostFrequentCookies.append(key)
-            
-    for cookie in mostFrequentCookies:
-        print(cookie)
 
-
+    return mostFrequentCookies
 
 def checkArgumentValidity(argv):
 
