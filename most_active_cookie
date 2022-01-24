@@ -6,18 +6,26 @@ from os import path
 import datetime
 
 
-def main(argv=None):
 
+
+def main(argv=None):
+    # check arguments given are valid 
     argumentValues = checkArgumentValidity(argv)
     filePath = argumentValues[0]
     targetDate = argumentValues[1]
 
+    # get list of cookies from target date
     cookiesOnTargetDate = getCookiesListOnTargetDate(filePath, targetDate)
 
+    # get most frequent cookie(s) - depending on if there is a tie or not 
     mostFrequentCookies = getMostFrequentCookies(cookiesOnTargetDate)
-            
+
+    # print most frequent cookie(s)     
     for cookie in mostFrequentCookies:
         print(cookie)
+
+
+
 
 def getCookiesListOnTargetDate(filePath, targetDate):
 
@@ -35,8 +43,10 @@ def getCookiesListOnTargetDate(filePath, targetDate):
             if targetDate in timestamp: 
                 cookie = row[0]
                 cookiesOnTargetDate.append(cookie)
-
+    # return list of cookies on target date 
     return cookiesOnTargetDate
+
+
 
 
 def getMostFrequentCookies(cookiesOnTargetDate):
@@ -44,19 +54,27 @@ def getMostFrequentCookies(cookiesOnTargetDate):
     cookiesDict = {}
     mostFrequentCookies = []
     maxCount = 0
+    # make a new dictionary where the key are the cookies, and the values are the number
+    # of occurences 
     for cookie in cookiesOnTargetDate:
 
         if cookie not in cookiesDict:
             cookiesDict[cookie] = 0
         cookiesDict[cookie] += 1
 
+    # store the max cookie frequency
     maxCount = max(cookiesDict.values())
 
+    # retrive the most frequent cookie (or cookies - depending on if there is a tie for
+    # number of occurences
     for key in cookiesDict:
         if cookiesDict[key] == maxCount:
             mostFrequentCookies.append(key)
-
+    # return list of most frequent cookies 
     return mostFrequentCookies
+
+
+
 
 def checkArgumentValidity(argv):
 
