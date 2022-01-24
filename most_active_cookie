@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 import csv
 import argparse
-from http import cookies
 from os import path 
 import datetime
 
@@ -43,6 +42,7 @@ def getCookiesListOnTargetDate(filePath, targetDate):
             if targetDate in timestamp: 
                 cookie = row[0]
                 cookiesOnTargetDate.append(cookie)
+
     # return list of cookies on target date 
     return cookiesOnTargetDate
 
@@ -69,7 +69,7 @@ def getMostFrequentCookies(cookiesOnTargetDate):
     # number of occurences
     for key in cookiesDict:
         if cookiesDict[key] == maxCount:
-            mostFrequentCookies.append(key)
+            mostFrequentCookies.insert(0, key)
     # return list of most frequent cookies 
     return mostFrequentCookies
 
@@ -87,6 +87,8 @@ def checkArgumentValidity(argv):
     args = argparser.parse_args()
     filePath = args.filePath
     targetDate = args.targetDate
+    
+    # check for csv
 
     # test if all necessary arguments (file path and target date) are input by the user
     # if not, raise necessary exceptions to show an error has occured 
