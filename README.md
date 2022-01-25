@@ -9,7 +9,6 @@
 ./most_active_cookie cookie_log.csv -d 2018-12-09
 ```
 ```
-# expected output 
 AtY0laUfhglK3lC7
 ```
 
@@ -19,7 +18,6 @@ AtY0laUfhglK3lC7
 ./most_active_cookie.py cookie_log.csv -d 2018-12-08
 ```
 ```
-# expected outputs
 SAZuXPGUrfbcn5UA
 4sMM2LxV07bPJzwf
 fbcn5UAVanZf6UtG
