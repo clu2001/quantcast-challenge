@@ -1,6 +1,5 @@
 import most_active_cookie
 
-
 # function testing if get_cookies_list_on_target_date returns list of all cookies on 
 # given date 
 def test_cookies_list():
@@ -12,9 +11,6 @@ def test_cookies_list():
 
     assert list_of_cookies == expected_output
     assert list_of_cookies2 == expected_output2
-
-
-
 
 # function testing if get_most_frequent_cookies returns 
 def test_most_frequent_cookies():

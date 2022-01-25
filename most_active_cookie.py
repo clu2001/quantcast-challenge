@@ -4,9 +4,6 @@ import argparse
 from os import path 
 import datetime
 
-
-
-
 def main(argv=None):
     # check arguments given are valid 
     argument_values = check_argument_validity(argv)
@@ -22,9 +19,6 @@ def main(argv=None):
     # print most frequent cookie(s)     
     for cookie in most_frequent_cookies:
         print(cookie)
-
-
-
 
 def get_cookies_list_on_target_date(file_path, target_date):
 
@@ -49,9 +43,6 @@ def get_cookies_list_on_target_date(file_path, target_date):
         raise Exception("No available cookies found for target date")
     # return list of cookies on target date 
     return cookies_on_target_date
-
-
-
 
 def get_most_frequent_cookies(cookies_on_target_date):
     # return the most cookie with the highest frequency in cookies_on_target_date list 
@@ -78,9 +69,6 @@ def get_most_frequent_cookies(cookies_on_target_date):
     # return list of most frequent cookies 
     return most_frequent_cookies
 
-
-
-
 def check_argument_validity(argv):
 
     # parse command line into Python data types 
@@ -93,8 +81,6 @@ def check_argument_validity(argv):
     file_path = args.file_path
     target_date = args.target_date
     
-    # check for csv
-
     # test if all necessary arguments (file path and target date) are input by the user
     # if not, raise necessary exceptions to show an error has occured 
     if not path.exists(file_path):
@@ -112,7 +98,6 @@ def check_argument_validity(argv):
     
     # return file_path and target_date to be used in main function
     return [file_path, target_date]
-
 
 if __name__ == "__main__":
     main()
