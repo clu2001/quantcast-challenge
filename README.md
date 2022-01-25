@@ -1,6 +1,8 @@
 # quantcast-challenge: 
 # given a cookie log, return the most active cookie on a given date 
 
+Note: please install necessary python packages listed in requirements.txt
+
 ## Example usage: 
 
 ### One expected output 
@@ -22,6 +24,11 @@ SAZuXPGUrfbcn5UA
 4sMM2LxV07bPJzwf
 fbcn5UAVanZf6UtG
 ```
+
+### Using pytest
+
+Please change into "test" directory and input "pytest" on command line to run pytest
+
 
 
 
