@@ -1,7 +1,12 @@
 # quantcast-challenge: 
-# given a cookie log, return the most active cookie on a given date 
+## given a cookie log, return the most active cookie on a given date 
 
-Note: please install necessary python packages listed in requirements.txt
+
+### Setup
+```python
+# installing all necessary python packages
+pip3 install -r requirements.txt
+```
 
 ## Example usage: 
 
@@ -27,7 +32,7 @@ fbcn5UAVanZf6UtG
 
 ### Using pytest
 
-Please change into "test" directory and input "pytest" on command line to run pytest
+Move into "test" directory and input "pytest" on command line to run pytest
 
 
 
