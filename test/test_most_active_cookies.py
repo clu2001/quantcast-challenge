@@ -40,7 +40,4 @@ def test_most_frequent_cookies():
     assert list_of_cookies == expected_output
     assert list_of_cookies2 == expected_output2
 
-if __name__ == "__main__":
-    test_cookies_list()
-    test_most_frequent_cookies()
 
